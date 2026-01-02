@@ -39,7 +39,7 @@ obj Counter {
 
 func main() {
   let msg: [ch, ~] = create_msg("Dove");
-  println("{msg}");
+  println("{}", msg);
 
   let counter: Counter = { value = 0 };
 
