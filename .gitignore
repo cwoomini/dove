@@ -1,0 +1,10 @@
+# MacOS
+.DS_Store
+
+# Build files
+**/build
+
+# Clang
+**/.cache
+**/compile_commands.json
+**/.clangd

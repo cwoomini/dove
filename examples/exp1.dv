@@ -1,0 +1,85 @@
+use dove::{std!, rng};  // Adding ! behind the name is the equivalent of `using namespace` in C++
+
+// Single line comments
+
+/*
+ * Block comments
+ */
+
+obj ObjectName {        // Equivalent to a Struct in C++
+    let aa: i32;
+    let bb: [ch, ~];
+}
+
+func main() -> i32 {
+    println("Hello, World!");
+
+    // Variable declaration
+    let a: i32 = 10;                    // Integer (i8, i16, i32, i64, i128)
+                                        // Numbers can be expressed as Binary (0b1010), Octal (0o12), Decimal (10), Hexadecimal (0xA)
+
+    let b: f64 = 20.5;                  // Float (f64, f128)
+
+    let c: bool = true;                 // Boolean (bool) - Does not represent 1 or 0
+
+    let d: ch = 'D';                    // 8-bit character (ch)
+    let e: [ch, 5] = "Hello";           // Character array (Static size)
+    let f: [ch, ~] = "Dove Language";   // Character array (Dynamic size)
+
+    let g: &i32 = &a;                   // Reference
+    let h: i32 = *g;                    // Dereference (To get i32 value)
+
+    let i: i32 = if_expr(15);           // Function
+    println("The result is: {i}");
+
+    0                                   // Return statement
+                                        // Can also be written as `rtn 0;`
+}
+
+func if_expr(value: i32) -> i32 {
+    if value > 10 {
+        value * 2
+    } else {
+        value + 5
+    }
+}
+
+func match_expr(value: i32) -> ch {
+    match value {
+        is 1: 'A';
+        is 2: 'B';
+        is >= 5: 'C';
+        fallback: {
+            println("Value not matched, returning default 'D'");
+            'D'
+        };
+    }
+}
+
+func loop_expr() {
+    loop {
+        println("This will loop continuously unless broken.");
+        brk;
+    }
+
+    loop a {
+        loop b {
+            println("Breaking out of outer loop.");
+            brk a;
+        }
+    }
+}
+
+func for_expr() {
+    for i in rng::range(0, 5) {
+        println("For loop: {}", i);
+    }
+}
+
+func while_expr() {
+    let count: i32 = 0;
+    while count < 5 {
+        println("While loop: {}", count);
+        count += 1;
+    }
+}
